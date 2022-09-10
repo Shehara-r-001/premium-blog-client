@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face */
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: Rubik, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-sign {
+    @apply bg-header_bg p-1 px-4 text-base rounded-sm hover:bg-green_bg transition-all duration-200 cursor-pointer hover:-translate-y-[2px] tracking-wide;
+  }
+
+  .inputField {
+    @apply outline-none border-none flex-1 px-2 text-sm py-1 bg-[#404040] rounded-sm;
+  }
+}
