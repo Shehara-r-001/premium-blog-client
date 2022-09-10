@@ -6,6 +6,7 @@ import ArticlesPage from './Pages/ArticlesPage';
 import { ProtectedRoute } from './routes/ProtectedRoute';
 import Plans from './Pages/Plans';
 import NotFound from './Pages/NotFound';
+import ArticlePage from './Pages/ArticlePage';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path='/articles' element={<ProtectedRoute />}>
           <Route path='/articles' element={<ArticlesPage />} />
+        </Route>
+        <Route path='/articles/:id' element={<ProtectedRoute />}>
+          <Route path='/articles/:id' element={<ArticlePage />} />
         </Route>
         <Route path='/plans' element={<ProtectedRoute />}>
           <Route path='/plans' element={<Plans />} />

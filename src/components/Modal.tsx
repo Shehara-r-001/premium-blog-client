@@ -22,13 +22,10 @@ const Modal = () => {
     e.preventDefault();
 
     await axios
-      .post(
-        `https://check-my-code-backend.herokuapp.com/api/auth/${signState.toLowerCase()}`,
-        {
-          email,
-          password,
-        }
-      )
+      .post(`http://localhost:3333/api/auth/${signState.toLowerCase()}`, {
+        email,
+        password,
+      })
       .then(({ data }) => {
         const userData: UserData = data;
         localStorage.setItem('tokenCMC', userData.data.token);
@@ -45,7 +42,7 @@ const Modal = () => {
         }
 
         await axios
-          .get('https://check-my-code-backend.herokuapp.com/api/auth/user')
+          .get('http://localhost:3333/api/auth/user')
           .then(({ data }) => {
             dispatch(getUser(data));
             console.log(data);
