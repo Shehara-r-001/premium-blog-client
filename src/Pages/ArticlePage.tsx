@@ -41,9 +41,8 @@ const ArticlePage = () => {
         <p className='mt-3 text-sm text-justify'>
           {article?.desc.split('\n', 100)}
         </p>
+        <CommentBox articleID={article?._id} />
       </div>
-
-      <CommentBox />
 
       <Rightbar access={article?.access} />
     </div>

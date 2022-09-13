@@ -1,9 +1,10 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaBlog } from 'react-icons/fa';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { tokenToString } from 'typescript';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { loggedOutUser } from '../redux/slices/userSlice';
+import { failedUser, getUser, loggedOutUser } from '../redux/slices/userSlice';
 
 // try useLocation
 
@@ -24,7 +25,26 @@ const Header = () => {
 
   useEffect(() => {
     localStorage.getItem('userEmailCMC') ? setEmail(true) : setEmail(false);
+
+    checkUser();
   }, [location]);
+
+  const checkUser = async () => {
+    const token = localStorage.getItem('tokenCMC');
+
+    if (token) {
+      axios.defaults.headers.common['authorization'] = `Bearer ${token}`;
+    }
+
+    await axios
+      .get('http://localhost:3333/api/auth/user')
+      .then(({ data }) => {
+        dispatch(getUser(data));
+      })
+      .catch(({ response }) =>
+        dispatch(failedUser(response.data.errors[0].msg))
+      );
+  };
 
   return (
     <div className='p-3 lg:px-8 flex items-center w-full justify-between fixed top-0 bg-header_bg backdrop-blur-[3px] z-20 text-[#fff] tracking-wide'>
