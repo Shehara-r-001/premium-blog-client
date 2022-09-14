@@ -2,14 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaBlog } from 'react-icons/fa';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { tokenToString } from 'typescript';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { useAppDispatch } from '../redux/hooks';
 import { failedUser, getUser, loggedOutUser } from '../redux/slices/userSlice';
 
-// try useLocation
-
 const Header = () => {
-  let user = useAppSelector((state) => state.user.data);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState<boolean>();
