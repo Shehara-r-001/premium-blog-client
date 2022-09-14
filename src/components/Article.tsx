@@ -13,7 +13,7 @@ const Article = ({ article }: Props) => {
         <img
           src={article.imgUrl}
           alt=''
-          className=' w-full h-[22vh] object-cover'
+          className='w-full h-[22vh] object-cover'
         />
       </div>
       <p className='text-xs px-2 py-3 text-justify'>

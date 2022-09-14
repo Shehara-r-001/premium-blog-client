@@ -1,10 +1,16 @@
 import React from 'react';
 import Comment from './Comment';
 
-const Comments = () => {
+type Props = {
+  comments: Comment[] | undefined;
+};
+
+const Comments = ({ comments }: Props) => {
   return (
     <div className='border-t border-[#737373] mt-5'>
-      <Comment />
+      {comments?.map((comment) => (
+        <Comment key={comment._id} comment={comment} />
+      ))}
     </div>
   );
 };

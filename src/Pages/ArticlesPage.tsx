@@ -41,7 +41,7 @@ const ArticlesPage = () => {
         axios.defaults.headers.common['authorization'] = `Bearer ${token}`;
       }
       await axios
-        .get('https://check-my-code-backend.herokuapp.com/api/articles')
+        .get('http://localhost:3333/api/articles')
         .then(({ data }) => {
           setArticles(data);
         })

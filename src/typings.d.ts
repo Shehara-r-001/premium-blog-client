@@ -37,3 +37,11 @@ interface Article {
   _id: string;
   access: string;
 }
+
+interface Comment {
+  articleID: string;
+  userID: string;
+  desc: string;
+  createdAt: string;
+  _id: string;
+}

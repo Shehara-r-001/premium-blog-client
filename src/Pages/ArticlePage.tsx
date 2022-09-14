@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CommentBox from '../components/CommentBox';
 import Rightbar from '../components/Rightbar';
+import Suggestions from '../components/Suggestions';
 
 const ArticlePage = () => {
   const [article, setArticle] = useState<Article>();
+  const [articles, setArticles] = useState<any>();
   const params = useParams();
 
   useEffect(() => {
@@ -18,6 +20,18 @@ const ArticlePage = () => {
         .catch((error) => console.log(error));
     };
     fetchArticle();
+  }, []);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      await axios
+        .get('http://localhost:3333/api/articles')
+        .then(({ data }) => {
+          setArticles(data);
+        })
+        .catch((error) => console.log(error));
+    };
+    fetchArticles();
   }, []);
 
   return (
@@ -37,14 +51,17 @@ const ArticlePage = () => {
             {article?.access.split('', 100)}
           </p>
         </div>
-        <img src={article?.imgUrl} alt='' className='object-cover' />
+        <img src={article?.imgUrl} alt='' className='object-cover w-full' />
         <p className='mt-3 text-sm text-justify'>
           {article?.desc.split('\n', 100)}
         </p>
         <CommentBox articleID={article?._id} />
       </div>
 
-      <Rightbar access={article?.access} />
+      <div>
+        <Rightbar access={article?.access} />
+        <Suggestions articles={articles} />
+      </div>
     </div>
   );
 };

@@ -8,10 +8,10 @@ type Props = {
 const Rightbar = ({ access }: Props) => {
   const user = useAppSelector((state) => state.user.data.email);
   return (
-    <div className='border-l border-[#737373] w-4/5 mx-auto md:w-1/4 md:h-[100px] p-3 flex items-start justify-center flex-col rounded-lg md:fixed md:top-20 md:right-5'>
+    <div className='border border-[#008ae6] w-4/5 mx-auto md:w-1/4 md:h-[100px] p-3 flex items-start justify-center flex-col rounded-lg md:fixed md:top-20 md:right-5'>
       <div className='text-base flex flex-wrap items-center justify-between w-full'>
         <h1 className=''>Signed In as</h1>
-        <h1 className='font-semibold text-[#00ff00] truncate'>{user}</h1>
+        <h1 className='font-semibold text-[#008ae6] truncate'>{user}</h1>
       </div>
       <div className='text-base flex flex-wrap items-center justify-between w-full'>
         <h1>Subscription Type</h1>
