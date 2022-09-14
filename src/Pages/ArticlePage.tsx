@@ -20,7 +20,7 @@ const ArticlePage = () => {
         .catch((error) => console.log(error));
     };
     fetchArticle();
-  }, []);
+  }, [params.id]);
 
   useEffect(() => {
     const fetchArticles = async () => {

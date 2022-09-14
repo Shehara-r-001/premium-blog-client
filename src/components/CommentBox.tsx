@@ -46,7 +46,7 @@ const CommentBox = ({ articleID }: Props) => {
         .catch((error) => console.log(error));
     };
     fetchComments();
-  }, [params.articleID, refresh]);
+  }, [params.id, refresh]);
 
   return (
     <div className='border-t border-[#737373] my-10 md:pb-10'>
