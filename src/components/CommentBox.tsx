@@ -61,7 +61,8 @@ const CommentBox = ({ articleID }: Props) => {
         />
         <button
           onClick={postComment}
-          className='border border-[#008ae6] text-[#008ae6] font-semibold mt-5 px-3 rounded-sm hover:bg-[#008ae6] hover:text-[#fff] duration-200'
+          disabled={!comment}
+          className='border border-[#008ae6] text-[#008ae6] font-semibold mt-5 px-3 rounded-sm hover:bg-[#008ae6] hover:text-[#fff] duration-200 disabled:opacity-50'
         >
           post
         </button>

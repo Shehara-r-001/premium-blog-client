@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CommentBox from '../components/CommentBox';
 import Rightbar from '../components/Rightbar';
 import Suggestions from '../components/Suggestions';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 const ArticlePage = () => {
   const [article, setArticle] = useState<Article>();
@@ -61,6 +62,14 @@ const ArticlePage = () => {
       <div>
         <Rightbar access={article?.access} />
         <Suggestions articles={articles} />
+        <Link to='/articles'>
+          <button className='fixed top-[90vh] md:w-[200px] w-[60px] right-[20px] flex items-center border border-[#008ae6] justify-center py-1 group rounded-sm shadow-shadow02 hover:bg-[#008ae6] transition-all duration-200 ease-out backdrop-blur-sm'>
+            <BsArrowLeftShort className='h-6 w-6 group-hover:-translate-x-4 duration-200' />
+            <p className='font-semibold text-sm hidden md:inline'>
+              Back to Articles
+            </p>
+          </button>
+        </Link>
       </div>
     </div>
   );
