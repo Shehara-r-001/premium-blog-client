@@ -14,7 +14,7 @@ const ArticlePage = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       await axios
-        .get(`http://localhost:3333/api/articles/find/${params.id}`)
+        .get(`https://cmc-remake.herokuapp.com/api/articles/find/${params.id}`)
         .then((res) => {
           setArticle(res.data);
         })
@@ -26,7 +26,7 @@ const ArticlePage = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       await axios
-        .get('http://localhost:3333/api/articles')
+        .get('https://cmc-remake.herokuapp.com/api/articles')
         .then(({ data }) => {
           setArticles(data);
         })

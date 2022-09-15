@@ -20,7 +20,7 @@ const ArticlesPage = () => {
       }
 
       await axios
-        .get('https://check-my-code-backend.herokuapp.com/api/auth/user')
+        .get('https://cmc-remake.herokuapp.com/api/auth/user')
         .then(({ data }) => {
           dispatch(getUser(data));
           // console.log(data);
@@ -41,7 +41,7 @@ const ArticlesPage = () => {
         axios.defaults.headers.common['authorization'] = `Bearer ${token}`;
       }
       await axios
-        .get('http://localhost:3333/api/articles')
+        .get('https://cmc-remake.herokuapp.com/api/articles')
         .then(({ data }) => {
           setArticles(data);
         })

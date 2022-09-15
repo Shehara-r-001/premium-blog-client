@@ -18,7 +18,7 @@ const Plans = () => {
       }
 
       await axios
-        .get('https://check-my-code-backend.herokuapp.com/api/auth/user')
+        .get('https://cmc-remake.herokuapp.com/api/auth/user')
         .then(({ data }) => {
           dispatch(getUser(data));
           getPlans();
@@ -32,7 +32,7 @@ const Plans = () => {
 
   const getPlans = async () => {
     await axios
-      .get('https://check-my-code-backend.herokuapp.com/api/subs/plans')
+      .get('https://cmc-remake.herokuapp.com/api/subs/plans')
       .then(({ data }) => {
         setPlans(data.data);
         // console.log(plans);

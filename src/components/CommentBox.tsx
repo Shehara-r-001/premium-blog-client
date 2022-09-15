@@ -21,7 +21,7 @@ const CommentBox = ({ articleID }: Props) => {
     e.preventDefault();
 
     await axios
-      .post('http://localhost:3333/api/comments', {
+      .post('https://cmc-remake.herokuapp.com/api/comments', {
         userID: user.id,
         articleID,
         desc: comment,
@@ -39,7 +39,7 @@ const CommentBox = ({ articleID }: Props) => {
   useEffect(() => {
     const fetchComments = async () => {
       await axios
-        .get(`http://localhost:3333/api/comments/${params.id}`)
+        .get(`https://cmc-remake.herokuapp.com/api/comments/${params.id}`)
         .then((res) => {
           setComments(res.data);
         })

@@ -8,7 +8,7 @@ type Props = {
 const Plan = ({ plan }: Props) => {
   const createSession = async (priceID: string) => {
     await axios
-      .post('http://localhost:3333/api/subs/session', {
+      .post('https://cmc-remake.herokuapp.com/api/subs/session', {
         priceID,
       })
       .then(({ data }) => {

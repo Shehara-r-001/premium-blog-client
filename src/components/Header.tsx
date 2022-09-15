@@ -33,7 +33,7 @@ const Header = () => {
     }
 
     await axios
-      .get('http://localhost:3333/api/auth/user')
+      .get('https://cmc-remake.herokuapp.com/api/auth/user')
       .then(({ data }) => {
         dispatch(getUser(data));
       })
